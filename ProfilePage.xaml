@@ -3,7 +3,21 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Title="ProfilePage">
 
-    <Grid Background="#FFE6CC23">
-        <Button x:Name="btnEditar" Content="Ir para Profile Editar" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnEditar_Click"/>
+    <Grid Background="#FFE6CC23" Margin="20">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" >
+            <TextBlock Text="Nome:" FontWeight="Bold"/>
+            <TextBox x:Name="txtNome" IsReadOnly="True"/>
+
+            <TextBlock Text="Telefone:" FontWeight="Bold"/>
+            <TextBox x:Name="txtTelefone" IsReadOnly="True"/>
+
+            <TextBlock Text="Região:" FontWeight="Bold"/>
+            <TextBox x:Name="txtRegiao" IsReadOnly="True"/>
+
+            <TextBlock Text="Email:" FontWeight="Bold"/>
+            <TextBox x:Name="txtEmail" IsReadOnly="True"/>
+
+            <Button x:Name="btnEditar" Content="Ir para Profile Editar" Width="150" Click="btnEditar_Click" Margin="0,20,0,0"/>
+        </StackPanel>
     </Grid>
 </Page>
