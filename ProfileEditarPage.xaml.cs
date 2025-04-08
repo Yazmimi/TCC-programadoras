@@ -24,5 +24,11 @@ namespace TCC
         {
             InitializeComponent();
         }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            ProfilePage profilePage = new ProfilePage();
+            NavigationService.Navigate(profilePage);
+        }
     }
 }

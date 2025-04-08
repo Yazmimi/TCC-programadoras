@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Title="ProfilePage">
 
-    <Grid Background="#1A1F71">
-        
+    <Grid Background="#FFE6CC23">
+        <Button x:Name="btnEditar" Content="Ir para Profile Editar" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnEditar_Click"/>
     </Grid>
 </Page>

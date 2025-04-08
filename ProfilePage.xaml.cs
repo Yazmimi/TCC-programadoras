@@ -16,20 +16,10 @@ namespace TCC
            
         }
 
-       
-
-        private void BtnEditar_Click(object sender, RoutedEventArgs e)
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            
-        }
-
-        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
-        {
-           
+            ProfileEditarPage profileEditarPage = new ProfileEditarPage();
+            NavigationService.Navigate(profileEditarPage);
         }
     }
 }
