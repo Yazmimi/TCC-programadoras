@@ -3,51 +3,82 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Title="ProfilePage">
 
+    <Page.Resources>
+        <!-- Estilo do botão Editar Perfil (amarelo com hover) -->
+        <Style x:Key="EditarPerfilButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FFC107"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFFFD163"/>
+                    <!-- Amarelo mais escuro -->
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
     <Grid Background="#FF000277">
-        <Border Background="#1E3A8A" Padding="20" Margin="100"
-                CornerRadius="15" VerticalAlignment="Center" HorizontalAlignment="Center" Width="500">
+        <Border Background="#002060" Padding="30" Margin="80"
+                CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" Width="500">
             <StackPanel>
-                <TextBlock Text="Perfil do Usuário" FontSize="18" FontWeight="Bold"
-                           Foreground="White" Margin="0,0,0,20"/>
+
+                <TextBlock Text="👤 Perfil do Usuário" FontSize="32" FontWeight="Bold"
+                           Foreground="White" Margin="0,0,0,25" HorizontalAlignment="Center"/>
 
                 <!-- Nome -->
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <TextBlock Text="👤" FontSize="16" VerticalAlignment="Center" Foreground="White" Margin="0,0,10,0"/>
-                    <TextBox x:Name="txtNome" Height="35" Padding="10"
-                             Background="#1D4ED8" Foreground="White" BorderThickness="0"
-                             IsReadOnly="True" Width="149"/>
+                <StackPanel Margin="0,0,0,12">
+                    <Label Content="Nome" Foreground="White" FontSize="18" FontWeight="SemiBold"/>
+                    <TextBox x:Name="txtNome" Height="38" Padding="10"
+                             Background="#003399" Foreground="White" BorderThickness="0"
+                             IsReadOnly="True"/>
                 </StackPanel>
 
                 <!-- Telefone -->
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <TextBlock Text="📞" FontSize="16" VerticalAlignment="Center" Foreground="White" Margin="0,0,10,0"/>
-                    <TextBox x:Name="txtTelefone" Height="35" Padding="10"
-                             Background="#1D4ED8" Foreground="White" BorderThickness="0"
-                             IsReadOnly="True" Width="149"/>
+                <StackPanel Margin="0,0,0,12">
+                    <Label Content="Telefone" Foreground="White" FontSize="18" FontWeight="SemiBold"/>
+                    <TextBox x:Name="txtTelefone" Height="38" Padding="10"
+                             Background="#003399" Foreground="White" BorderThickness="0"
+                             IsReadOnly="True"/>
                 </StackPanel>
 
                 <!-- Região -->
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <TextBlock Text="📍" FontSize="16" VerticalAlignment="Center" Foreground="White" Margin="0,0,10,0"/>
-                    <TextBox x:Name="txtRegiao" Height="35" Padding="10"
-                             Background="#1D4ED8" Foreground="White" BorderThickness="0"
-                             IsReadOnly="True" Width="159"/>
+                <StackPanel Margin="0,0,0,12">
+                    <Label Content="Região" Foreground="White" FontSize="18" FontWeight="SemiBold"/>
+                    <TextBox x:Name="txtRegiao" Height="38" Padding="10"
+                             Background="#003399" Foreground="White" BorderThickness="0"
+                             IsReadOnly="True"/>
                 </StackPanel>
 
                 <!-- Email -->
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <TextBlock Text="📧" FontSize="16" VerticalAlignment="Center" Foreground="White" Margin="0,0,10,0"/>
-                    <TextBox x:Name="txtEmail" Height="35" Padding="10"
-                             Background="#1D4ED8" Foreground="White" BorderThickness="0"
-                             IsReadOnly="True" Width="151"/>
+                <StackPanel Margin="0,0,0,12">
+                    <Label Content="Email" Foreground="White" FontSize="18" FontWeight="SemiBold"/>
+                    <TextBox x:Name="txtEmail" Height="38" Padding="10"
+                             Background="#003399" Foreground="White" BorderThickness="0"
+                             IsReadOnly="True"/>
                 </StackPanel>
 
                 <!-- Botão de edição -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
                     <Button x:Name="btnEditar" Content="✏️ Editar Perfil" Width="150"
-                            Background="#F59E0B" Foreground="White" BorderThickness="0"
-                            Padding="5" Height="35" Click="btnEditar_Click"/>
+                            Style="{StaticResource EditarPerfilButtonStyle}"
+                            Click="btnEditar_Click"/>
                 </StackPanel>
+
             </StackPanel>
         </Border>
     </Grid>
