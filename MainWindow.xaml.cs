@@ -19,9 +19,11 @@ namespace TCC
 
         public static class SessaoUsuario
         {
-            public static int UsuarioId { get; set; }
+            public static int Cod { get; set; }
             public static string Nome { get; set; }
             public static string Email { get; set; }
+            public static string Telefone { get; set; }
+            public static string Regiao { get; set; }
         }
 
         public bool ValidarLogin(string email, string senha)
@@ -68,7 +70,7 @@ namespace TCC
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT cod, usuario FROM usuariosCadastrados WHERE email = @Email AND Senha = @Senha";
+                    string query = "SELECT cod, usuario, telefone, regiao FROM usuariosCadastrados WHERE email = @Email AND senha = @Senha";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Email", email);
                     command.Parameters.AddWithValue("@Senha", senha);
@@ -77,9 +79,12 @@ namespace TCC
                     {
                         if (reader.Read())
                         {
-                            SessaoUsuario.UsuarioId = reader.GetInt32("cod");
+                            SessaoUsuario.Cod = reader.GetInt32("cod");
                             SessaoUsuario.Nome = reader.GetString("usuario");
                             SessaoUsuario.Email = email;
+                            SessaoUsuario.Telefone = reader.GetString("telefone");
+                            SessaoUsuario.Regiao = reader.GetString("regiao");
+
 
                             MessageBox.Show("Login bem-sucedido!");
                             PrincipalWindow1 novaJanela = new PrincipalWindow1();

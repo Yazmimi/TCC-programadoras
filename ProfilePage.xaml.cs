@@ -25,7 +25,7 @@ namespace TCC
                     connection.Open();
                     string query = "SELECT usuario, telefone, regiao, email FROM usuariosCadastrados WHERE cod = @UsuarioId";
                     MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@UsuarioId", SessaoUsuario.UsuarioId);
+                    command.Parameters.AddWithValue("@UsuarioId", SessaoUsuario.Cod);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {

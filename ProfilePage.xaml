@@ -3,21 +3,52 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Title="ProfilePage">
 
-    <Grid Background="#FFE6CC23" Margin="20">
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" >
-            <TextBlock Text="Nome:" FontWeight="Bold"/>
-            <TextBox x:Name="txtNome" IsReadOnly="True"/>
+    <Grid Background="#FF000277">
+        <Border Background="#1E3A8A" Padding="20" Margin="100"
+                CornerRadius="15" VerticalAlignment="Center" HorizontalAlignment="Center" Width="500">
+            <StackPanel>
+                <TextBlock Text="Perfil do Usuário" FontSize="18" FontWeight="Bold"
+                           Foreground="White" Margin="0,0,0,20"/>
 
-            <TextBlock Text="Telefone:" FontWeight="Bold"/>
-            <TextBox x:Name="txtTelefone" IsReadOnly="True"/>
+                <!-- Nome -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="👤" FontSize="16" VerticalAlignment="Center" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBox x:Name="txtNome" Height="35" Padding="10"
+                             Background="#1D4ED8" Foreground="White" BorderThickness="0"
+                             IsReadOnly="True" Width="149"/>
+                </StackPanel>
 
-            <TextBlock Text="Região:" FontWeight="Bold"/>
-            <TextBox x:Name="txtRegiao" IsReadOnly="True"/>
+                <!-- Telefone -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="📞" FontSize="16" VerticalAlignment="Center" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBox x:Name="txtTelefone" Height="35" Padding="10"
+                             Background="#1D4ED8" Foreground="White" BorderThickness="0"
+                             IsReadOnly="True" Width="149"/>
+                </StackPanel>
 
-            <TextBlock Text="Email:" FontWeight="Bold"/>
-            <TextBox x:Name="txtEmail" IsReadOnly="True"/>
+                <!-- Região -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="📍" FontSize="16" VerticalAlignment="Center" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBox x:Name="txtRegiao" Height="35" Padding="10"
+                             Background="#1D4ED8" Foreground="White" BorderThickness="0"
+                             IsReadOnly="True" Width="159"/>
+                </StackPanel>
 
-            <Button x:Name="btnEditar" Content="Ir para Profile Editar" Width="150" Click="btnEditar_Click" Margin="0,20,0,0"/>
-        </StackPanel>
+                <!-- Email -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="📧" FontSize="16" VerticalAlignment="Center" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBox x:Name="txtEmail" Height="35" Padding="10"
+                             Background="#1D4ED8" Foreground="White" BorderThickness="0"
+                             IsReadOnly="True" Width="151"/>
+                </StackPanel>
+
+                <!-- Botão de edição -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                    <Button x:Name="btnEditar" Content="✏️ Editar Perfil" Width="150"
+                            Background="#F59E0B" Foreground="White" BorderThickness="0"
+                            Padding="5" Height="35" Click="btnEditar_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
