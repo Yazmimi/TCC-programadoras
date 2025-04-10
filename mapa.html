@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mapa Interativo</title>
+    <style>
+        html, body, #map {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+        let map;
+        let marker;
+
+        function initMap() {
+            const centro = { lat: -25.4372, lng: -49.2328537 }; // Curitiba
+
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 13,
+                center: centro,
+            });
+
+            // Coloca um marcador padrão ao iniciar
+            adicionarIcone(1);
+        }
+
+        function atualizarIcone(tipo) {
+            if (!map) return;
+
+            // Remove marcador anterior
+            if (marker) {
+                marker.setMap(null);
+                marker = null;
+            }
+
+            adicionarIcone(tipo);
+        }
+
+        function adicionarIcone(tipo) {
+            const centro = { lat: -25.4372, lng: -49.2328537 }; // Curitiba
+            const icone = `icone${tipo}.png`; // Ícones na mesma pasta do HTML
+
+            marker = new google.maps.Marker({
+                position: centro,
+                map: map,
+                icon: icone,
+            });
+        }
+
+        // Captura erros no console (para debug)
+        window.onerror = function (message, source, lineno, colno, error) {
+            console.error("Erro no script:", message, "em", source, "linha", lineno);
+        };
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyWw1vGOzOJlHwUR23WMcZGZlz_LWcZE8&callback=initMap">
+    </script>
+</body>
+</html>
